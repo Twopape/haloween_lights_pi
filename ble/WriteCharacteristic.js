@@ -9,7 +9,7 @@ const uuids = require('./uuids');
 function WriteCharacteristic(writeData) {
   bleno.Characteristic.call(this, {
     uuid: uuids.writeCharacteristic,
-    properties: ['write']
+    properties: ['write', 'writeWithoutResponse']
   });
 
   this.writeData = writeData;
@@ -29,5 +29,8 @@ WriteCharacteristic.prototype.onWriteRequest = function(buffer, offset, withoutR
   const data = JSON.parse(buffer.toString());
   // console.log("Got data from central:", data);
   this.writeData(data);
+  if (withoutResponse) {
+    return
+  }
   callback(this.RESULT_SUCCESS);
 };
