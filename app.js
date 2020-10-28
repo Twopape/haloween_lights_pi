@@ -1,6 +1,6 @@
 const peripheral = require('./ble/peripheral');
 const Service = require('./ble/Service');
-
+const gpio = require('./gpio')
 
 function startPeripheral({readData, writeData}) {
   const service = new Service(readData, writeData);
@@ -22,10 +22,8 @@ function readData() {
 }
 
 const writeData = (data) => {
-  if (data.ssid === 'hello') {
-    console.log("HI");
-  }
-  console.log("Writing data", data);
+  // console.log("Writing data", data);
+  gpio.setDutyCycle(data.value)
 }
 
 startPeripheral({readData, writeData})

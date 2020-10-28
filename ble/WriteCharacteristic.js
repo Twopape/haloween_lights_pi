@@ -27,7 +27,7 @@ WriteCharacteristic.prototype.onWriteRequest = function(buffer, offset, withoutR
   }
 
   const data = JSON.parse(buffer.toString());
-  console.log("Got data from central:", data);
+  // console.log("Got data from central:", data);
   this.writeData(data);
   callback(this.RESULT_SUCCESS);
 };
