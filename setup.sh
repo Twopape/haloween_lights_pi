@@ -14,3 +14,8 @@ npm install pigpio
 
 sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev -y
 npm install bleno
+
+
+# sudo vi /etc/systemd/system/haloween.service
+# sudo systemctl enable haloween.service
+# sudo systemctl start haloween.service

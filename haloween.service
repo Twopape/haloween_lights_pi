@@ -1,0 +1,15 @@
+[Unit]
+Description=Halloween Server
+After=network.target
+
+[Service]
+ExecStart=/home/pi/haloween_lights_pi/app.js
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=halloween
+User=pi
+
+[Install]
+WantedBy=multi-user.target

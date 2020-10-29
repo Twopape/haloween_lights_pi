@@ -1,3 +1,5 @@
+#!/bin/node
+
 const peripheral = require('./ble/peripheral');
 const Service = require('./ble/Service');
 const gpio = require('./gpio')
